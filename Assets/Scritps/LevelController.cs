@@ -6,12 +6,12 @@ public class LevelController : MonoBehaviour
 {
     public float stressLevel;
     public float progressLevel;
-
-
+    public int beatRate;
+    private bool gameStarted = true;
 
     void Start()
     {
-        
+        StartCoroutine(Heartbeat());
     }
 
 
@@ -22,15 +22,22 @@ public class LevelController : MonoBehaviour
 
     private IEnumerator Heartbeat ()
     {
-        for (int i = 0; i < 1; i++ )
+        while (gameStarted)
         {
+            Debug.Log("Coroutine after waiting starting tick");
             Tick();
+            yield return new WaitForSeconds(beatRate);
         }
-        yield return null;
+
+        if (progressLevel >=1)
+        {
+            gameStarted = false;
+        }
     }
 
     private void Tick()
     {
+        // only for testing purpose 
         progressLevel += .1f;
     }
 }
