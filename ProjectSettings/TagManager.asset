@@ -41,3 +41,6 @@ TagManager:
   - name: Default
     uniqueID: 0
     locked: 0
+  - name: LevelObjects
+    uniqueID: 1643346453
+    locked: 0
