@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
+
 public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
@@ -23,7 +24,18 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        moveDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) * randomDireciton;
+        moveDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) + randomDirection;
         rb.MovePosition(moveDirection);
+    }
+
+    public void RandomizeMovementDIrection()
+    {
+        randomDirection = Vector3(random.range(-1,1),random.range(-1,1),random.range(-1,1));
+    }
+
+    public void TakeBreath()
+    {
+        // do breathing action 
+        
     }
 }
