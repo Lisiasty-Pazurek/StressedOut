@@ -9,6 +9,7 @@ public class PlayerController : MonoBehaviour
     public Canvas gameCanvas;
     private Vector3 moveDirection;
     private Vector3 randomDirection; 
+    public float scalingParameter = 1;
  
     // Start is called before the first frame update
     void Start()
@@ -36,6 +37,11 @@ public class PlayerController : MonoBehaviour
     public void TakeBreath()
     {
         // do breathing action 
-        this.gameObject.transform.localScale *= 1.2f;
+        this.gameObject.transform.localScale *= scalingParameter;
+    }
+
+    private void Pulse()
+    {
+        
     }
 }
