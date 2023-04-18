@@ -28,14 +28,14 @@ public class PlayerController : MonoBehaviour
         rb.MovePosition(moveDirection);
     }
 
-    public void RandomizeMovementDIrection()
+    public void RandomizeMovementDirection()
     {
-        randomDirection = Vector3(random.range(-1,1),random.range(-1,1),random.range(-1,1));
+        randomDirection = new Vector3(Random.Range(-1,1),Random.Range(-1,1),Random.Range(-1,1));
     }
 
     public void TakeBreath()
     {
         // do breathing action 
-        
+        this.gameObject.transform.localScale *= 1.2f;
     }
 }
