@@ -31,7 +31,7 @@ public class PlayerController : MonoBehaviour
 
     public void RandomizeMovementDirection()
     {
-        randomDirection = new Vector3(Random.Range(-1,1),Random.Range(-1,1),Random.Range(-1,1));
+        randomDirection = new Vector2(Random.Range(-1,1),Random.Range(-1,1));
     }
 
     public void TakeBreath()
@@ -42,6 +42,6 @@ public class PlayerController : MonoBehaviour
 
     private void Pulse()
     {
-        
+
     }
 }
