@@ -6,6 +6,8 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public Canvas gameCanvas;
+    private Vector3 moveDirection;
+    private Vector3 randomDirection; 
  
     // Start is called before the first frame update
     void Start()
@@ -21,6 +23,7 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        rb.MovePosition(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        moveDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) * randomDireciton;
+        rb.MovePosition(moveDirection);
     }
 }
