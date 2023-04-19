@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LevelController : MonoBehaviour
 {
@@ -8,6 +9,7 @@ public class LevelController : MonoBehaviour
     public float progressLevel;
     public int beatRate;
     private bool gameStarted = true;
+    public bool gameEnded = false;
     public float breathTimer;
 
     void Start()
@@ -32,13 +34,16 @@ public class LevelController : MonoBehaviour
 
         if (progressLevel >=1)
         {
-            gameStarted = false;
+            gameEnded = true;
         }
     }
 
     private void Tick()
     {
-        // only for testing purpose 
-        progressLevel += .1f;
+        if (gameStarted && !gameEnded)
+        {
+            progressLevel += .1f;
+            
+        }
     }
 }
