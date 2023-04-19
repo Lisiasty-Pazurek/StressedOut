@@ -6,12 +6,12 @@
             "id": "53fdf5e6-76c1-4952-a899-91d5db417180",
             "actions": [
                 {
-                    "name": "New action",
+                    "name": "Breathe",
                     "type": "Button",
                     "id": "c82daca3-2f07-47f8-bbae-ec2e6f759689",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "",
+                    "interactions": "Hold",
                     "initialStateCheck": false
                 }
             ],
@@ -19,11 +19,11 @@
                 {
                     "name": "",
                     "id": "cb9dce3c-4d77-465f-93ab-c29519e2a583",
-                    "path": "",
+                    "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "New action",
+                    "action": "Breathe",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

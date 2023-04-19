@@ -39,6 +39,7 @@ public class PlayerController : MonoBehaviour
 
     public bool TakeBreath()
     {
+        inhale = true;
         // do breathing action 
         this.gameObject.transform.localScale *= scalingParameter;
         return true;
