@@ -8,6 +8,7 @@ public class LevelController : MonoBehaviour
     public float progressLevel;
     public int beatRate;
     private bool gameStarted = true;
+    public float breathTimer;
 
     void Start()
     {

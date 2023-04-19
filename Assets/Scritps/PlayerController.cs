@@ -7,9 +7,12 @@ public class PlayerController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public Canvas gameCanvas;
+
+    public bool inhale;
     private Vector3 moveDirection;
     private Vector3 randomDirection; 
     public float scalingParameter = 1;
+
  
     // Start is called before the first frame update
     void Start()
@@ -34,10 +37,11 @@ public class PlayerController : MonoBehaviour
         randomDirection = new Vector2(Random.Range(-1,1),Random.Range(-1,1));
     }
 
-    public void TakeBreath()
+    public bool TakeBreath()
     {
         // do breathing action 
         this.gameObject.transform.localScale *= scalingParameter;
+        return true;
     }
 
     private void Pulse()
