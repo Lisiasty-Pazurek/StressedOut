@@ -32,7 +32,15 @@ public class LevelController : MonoBehaviour
             if (stressLevel >= 100)
             {
                 gameEnded = true;
+                // lose
             }
+
+            if (progressLevel >= 100)
+            {
+                gameEnded = true;
+                // win
+            }
+
         }
         
     }
