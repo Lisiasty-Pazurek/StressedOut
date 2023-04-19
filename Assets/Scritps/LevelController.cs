@@ -12,6 +12,9 @@ public class LevelController : MonoBehaviour
     public bool gameEnded = false;
     public float breathTimer;
 
+    
+    public List<Spawner> spawners = new List<Spawner>();
+
     void Start()
     {
         StartCoroutine(Heartbeat());

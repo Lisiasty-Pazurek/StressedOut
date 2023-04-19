@@ -5,6 +5,7 @@ using UnityEngine;
 public class Spawner : MonoBehaviour
 {
     public GameObject enemyPrefab;
+    
     public int spawnRate;
     // Start is called before the first frame update
     void Start()
@@ -20,6 +21,7 @@ public class Spawner : MonoBehaviour
 
     public void  SpawnEnemy()
     {
-        
+        GameObject spawnedEnemy = Instantiate(enemyPrefab, this.transform);
+        //spawnedEnemy.GetComponent<EnemyController>().RandomType();
     }
 }
