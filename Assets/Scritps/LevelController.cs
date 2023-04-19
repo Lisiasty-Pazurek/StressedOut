@@ -39,6 +39,7 @@ public class LevelController : MonoBehaviour
             if (progressLevel >= 100)
             {
                 gameEnded = true;
+                
                 // win
             }
 
