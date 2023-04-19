@@ -2148,6 +2148,10 @@ PrefabInstance:
       propertyPath: gameCanvas
       value: 
       objectReference: {fileID: 1835305570}
+    - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
+      propertyPath: levelController
+      value: 
+      objectReference: {fileID: 1207094501}
     - target: {fileID: 376073971106327613, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: m_Pivot.x
       value: 0.5

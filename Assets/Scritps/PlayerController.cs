@@ -5,8 +5,10 @@ using UnityEngine;
 
 public class PlayerController : MonoBehaviour
 {
+    [Header ("References")]
+    public LevelController levelController;
     private Rigidbody2D rb;
-    public Canvas gameCanvas;
+
 
     public bool inhale;
     private Vector3 moveDirection;
@@ -17,6 +19,7 @@ public class PlayerController : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        
         rb = GetComponent<Rigidbody2D>();
     }
 
@@ -48,5 +51,10 @@ public class PlayerController : MonoBehaviour
     private void Pulse()
     {
 
+    }
+
+    void OnCollisionEnter2D(Collision2D other)
+    {
+        levelController.stressLevel +=10;
     }
 }

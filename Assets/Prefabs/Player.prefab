@@ -54,7 +54,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 951a0be3f9cce6e40a12487c3332bf4f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  gameCanvas: {fileID: 0}
+  levelController: {fileID: 0}
+  inhale: 0
+  scalingParameter: 1
 --- !u!222 &376073971106327614
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -82,7 +84,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &376073971106327608
 CircleCollider2D:
