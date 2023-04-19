@@ -11,7 +11,7 @@ public class LevelController : MonoBehaviour
     private bool gameStarted = true;
     public bool gameEnded = false;
     public float breathTimer;
-
+    public float globalTimer;
     
     public List<Spawner> spawners = new List<Spawner>();
 
@@ -23,30 +23,31 @@ public class LevelController : MonoBehaviour
 
     void Update()
     {
+        if (gameStarted && !gameEnded)
+        {
+            globalTimer += Time.deltaTime;
+            stressLevel += Time.deltaTime;
+            progressLevel += Time.deltaTime;               
+
+            if (stressLevel >= 100)
+            {
+                gameEnded = true;
+            }
+        }
         
     }
 
+
     private IEnumerator Heartbeat ()
     {
-        while (gameStarted)
+        while (gameStarted )
         {
+            spawners[Random.Range(0,spawners.Count)].SpawnEnemy();
             Debug.Log("Coroutine after waiting starting tick");
-            Tick();
             yield return new WaitForSeconds(beatRate);
         }
 
-        if (progressLevel >=1)
-        {
-            gameEnded = true;
-        }
     }
 
-    private void Tick()
-    {
-        if (gameStarted && !gameEnded)
-        {
-            progressLevel += .1f;
-            
-        }
-    }
+
 }

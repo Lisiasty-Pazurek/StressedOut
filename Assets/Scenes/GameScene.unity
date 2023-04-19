@@ -1030,7 +1030,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 394127309}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
@@ -1130,9 +1130,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   stressLevel: 0
   progressLevel: 0
-  beatRate: 2
+  beatRate: 5
   gameEnded: 0
   breathTimer: 0
+  globalTimer: 0
   spawners:
   - {fileID: 7145565047226043934}
   - {fileID: 1247077021}
@@ -1912,7 +1913,7 @@ MonoBehaviour:
   m_HandleRect: {fileID: 670419509}
   m_Direction: 0
   m_MinValue: 0
-  m_MaxValue: 1
+  m_MaxValue: 100
   m_WholeNumbers: 0
   m_Value: 0
   m_OnValueChanged:
