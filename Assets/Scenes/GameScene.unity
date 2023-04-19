@@ -887,7 +887,7 @@ Rigidbody2D:
   m_Material: {fileID: 0}
   m_Interpolate: 0
   m_SleepingMode: 1
-  m_CollisionDetection: 0
+  m_CollisionDetection: 1
   m_Constraints: 0
 --- !u!58 &877764508
 CircleCollider2D:
@@ -2114,6 +2114,10 @@ PrefabInstance:
     - target: {fileID: 376073971106327608, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: m_Radius
       value: 40
+      objectReference: {fileID: 0}
+    - target: {fileID: 376073971106327610, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
+      propertyPath: m_CollisionDetection
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: gameCanvas
