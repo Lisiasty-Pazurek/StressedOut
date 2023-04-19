@@ -5,6 +5,7 @@ using UnityEngine.Events;
 
 public class LevelController : MonoBehaviour
 {
+    public PlayerController player;
     public float stressLevel;
     public float progressLevel;
     public int beatRate;
@@ -50,6 +51,7 @@ public class LevelController : MonoBehaviour
     {
         while (gameStarted )
         {
+            player.RandomizeMovementDirection();
             spawners[Random.Range(0,spawners.Count)].SpawnEnemy();
             Debug.Log("Coroutine after waiting starting tick");
             yield return new WaitForSeconds(beatRate);

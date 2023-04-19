@@ -6,12 +6,21 @@
             "id": "53fdf5e6-76c1-4952-a899-91d5db417180",
             "actions": [
                 {
-                    "name": "Breathe",
+                    "name": "Inhale",
                     "type": "Button",
                     "id": "c82daca3-2f07-47f8-bbae-ec2e6f759689",
                     "expectedControlType": "Button",
                     "processors": "",
-                    "interactions": "Hold",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Exhale",
+                    "type": "Button",
+                    "id": "d279bf17-a9ae-4c27-99a2-932d49fdb472",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
                     "initialStateCheck": false
                 }
             ],
@@ -20,15 +29,48 @@
                     "name": "",
                     "id": "cb9dce3c-4d77-465f-93ab-c29519e2a583",
                     "path": "<Mouse>/leftButton",
-                    "interactions": "",
+                    "interactions": "Press",
                     "processors": "",
                     "groups": "",
-                    "action": "Breathe",
+                    "action": "Inhale",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "11bfd79f-1f09-422e-8120-a76250436be6",
+                    "path": "<Mouse>/leftButton",
+                    "interactions": "Press(behavior=1)",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Exhale",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
             ]
         }
     ],
-    "controlSchemes": []
+    "controlSchemes": [
+        {
+            "name": "MainControlScheme",
+            "bindingGroup": "MainControlScheme",
+            "devices": []
+        },
+        {
+            "name": "MainControls",
+            "bindingGroup": "MainControls",
+            "devices": [
+                {
+                    "devicePath": "<Mouse>",
+                    "isOptional": false,
+                    "isOR": false
+                },
+                {
+                    "devicePath": "<Keyboard>",
+                    "isOptional": false,
+                    "isOR": false
+                }
+            ]
+        }
+    ]
 }
