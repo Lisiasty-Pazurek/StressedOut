@@ -6,13 +6,15 @@ public class EnemyController : MonoBehaviour
 {
     private Rigidbody2D rb;
     public CircleCollider2D eCollider;    
-    public float eIntensity;
+    public float stressPower;
     public Vector2 moveDestination;
+
+    public float maxSpeed;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
-        moveDestination = new Vector2(Random.Range(-3,3),Random.Range(-3,3));
+        moveDestination = new Vector2(Random.Range(-maxSpeed,maxSpeed),Random.Range(-maxSpeed,maxSpeed));
       
     }
 
@@ -24,7 +26,7 @@ public class EnemyController : MonoBehaviour
 
     public void ChangeDestination()
     {
-        moveDestination = new Vector2(Random.Range(-3,3),Random.Range(-3,3));
+        moveDestination = new Vector2(Random.Range(-maxSpeed,maxSpeed),Random.Range(-maxSpeed,maxSpeed));
     }
 
     void OnCollisionEnter2D(Collision2D other)

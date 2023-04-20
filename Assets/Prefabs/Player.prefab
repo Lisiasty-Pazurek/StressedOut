@@ -31,7 +31,7 @@ RectTransform:
   m_GameObject: {fileID: 376073971106327600}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 1}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 2, y: 2, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
@@ -40,7 +40,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 1}
-  m_SizeDelta: {x: 3, y: 3}
+  m_SizeDelta: {x: 80, y: 80}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &376073971106327612
 MonoBehaviour:
@@ -56,7 +56,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levelController: {fileID: 0}
   inhale: 0
-  scalingParameter: 1
+  moveSpeed: 1
+  breathTime: 0
+  unstressLevel: 3
+  breatheMaxTime: 3
+  maxSize: 16
+  basicScale: 2
 --- !u!222 &376073971106327614
 CanvasRenderer:
   m_ObjectHideFlags: 0

@@ -55,7 +55,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   eCollider: {fileID: 8506081345254349901}
+  stressPower: 6
   moveDestination: {x: 0, y: 0}
+  maxSpeed: 2
 --- !u!58 &8506081345254349901
 CircleCollider2D:
   m_ObjectHideFlags: 0

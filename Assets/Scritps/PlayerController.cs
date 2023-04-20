@@ -10,14 +10,19 @@ public class PlayerController : MonoBehaviour
     public LevelController levelController;
     private Rigidbody2D rb;
 
-    public int moveSpeed;
-    public float breathTime;
-
+    [Header ("Attributes")]
     public bool inhale;
     private Vector3 moveDirection;
     private Vector3 randomDirection; 
     private Vector3 randomDir;
-    public float scalingParameter = 2;
+
+    [Header ("Scaling setup")]
+    public int moveSpeed;
+    public float breathTime;
+    public float unstressLevel;
+    public float breatheMaxTime;
+    public float maxSize;
+    public float basicScale = 2;
 
  
     // Start is called before the first frame update
@@ -34,20 +39,20 @@ public class PlayerController : MonoBehaviour
         if (inhale)
         {
             breathTime += Time.deltaTime;
-            this.gameObject.transform.localScale += new Vector3(breathTime/5,breathTime/5,0);
+            this.gameObject.transform.localScale += new Vector3(breathTime*(1/maxSize),breathTime*(1/maxSize),0);
                   
         }
         if (!inhale)
         {
-            this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(scalingParameter, scalingParameter, 0), Time.deltaTime);            
+            this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(basicScale, basicScale, 0), Time.deltaTime);            
         }
 
 
-        if (Input.GetMouseButtonDown(0))
+        if (Input.GetMouseButtonDown(0) && breathTime < breatheMaxTime)
         {
             OnInhale();
         }
-        if (Input.GetMouseButtonUp(0))
+        if (Input.GetMouseButtonUp(0) || breathTime >= breatheMaxTime)
         {
             OnExhale();
         }
@@ -77,7 +82,7 @@ public class PlayerController : MonoBehaviour
     public void OnExhale()
     {
         inhale = false;
-        levelController.stressLevel -=breathTime;
+        levelController.stressLevel -= breathTime * unstressLevel;
         breathTime = 0;
 
     }
@@ -91,6 +96,9 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        levelController.stressLevel +=10;
+        if (other.gameObject.GetComponent<EnemyController>() != null)
+        {
+            levelController.stressLevel += other.gameObject.GetComponent<EnemyController>().stressPower;
+        }
     }
 }
