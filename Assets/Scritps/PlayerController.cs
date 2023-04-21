@@ -103,9 +103,14 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<EnemyController>() != null || other.gameObject.GetComponent<EnemyControllerTowardTarget>() != null)
+        if (other.gameObject.GetComponent<EnemyController>() != null)
         {
             levelController.stressLevel += other.gameObject.GetComponent<EnemyController>().stressPower;
+        }
+
+        if (other.gameObject.GetComponent<EnemyControllerTowardTarget>() != null)
+        {
+            levelController.stressLevel += other.gameObject.GetComponent<EnemyControllerTowardTarget>().stressPower;
         }
     }
 }
