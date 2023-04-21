@@ -2,26 +2,31 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Spawner : MonoBehaviour
+public class Spawner : ISpawner
 {
     public GameObject enemyPrefab;
-    
+
     public int spawnRate;
+
+    public Transform moveTargetTransform;
     // Start is called before the first frame update
     void Start()
     {
-        
+
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
     }
 
-    public void  SpawnEnemy()
+    override public bool SpawnEnemy()
     {
+        if (!transform.gameObject.activeSelf)
+            return false;
         GameObject spawnedEnemy = Instantiate(enemyPrefab, this.transform);
+        return true;
         //spawnedEnemy.GetComponent<EnemyController>().RandomType();
     }
 }

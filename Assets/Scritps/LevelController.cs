@@ -13,8 +13,9 @@ public class LevelController : MonoBehaviour
     public bool gameEnded = false;
     public float breathTimer;
     public float globalTimer;
-    
-    public List<Spawner> spawners = new List<Spawner>();
+
+    [SerializeField]
+    public List<ISpawner> spawners = new List<ISpawner>();
 
     void Start()
     {
@@ -28,7 +29,7 @@ public class LevelController : MonoBehaviour
         {
             globalTimer += Time.deltaTime;
             stressLevel += Time.deltaTime;
-            progressLevel += Time.deltaTime;               
+            progressLevel += Time.deltaTime;
 
             if (stressLevel >= 100)
             {
@@ -39,22 +40,32 @@ public class LevelController : MonoBehaviour
             if (progressLevel >= 100)
             {
                 gameEnded = true;
-                
+
                 // win
             }
 
         }
-        
+
     }
 
 
-    private IEnumerator Heartbeat ()
+    private IEnumerator Heartbeat()
     {
-        while (gameStarted )
+        while (gameStarted)
         {
             player.RandomizeMovementDirection();
-            spawners[Random.Range(0,spawners.Count)].SpawnEnemy();
-            Debug.Log("Coroutine after waiting starting tick");
+            bool spawnedOrCannotSpawn = false;
+            int failedCount = 0;
+            do
+            {
+                spawnedOrCannotSpawn = spawners[Random.Range(0, spawners.Count)].SpawnEnemy();
+                if (!spawnedOrCannotSpawn)
+                    failedCount++;
+                if (failedCount > 20)
+                    spawnedOrCannotSpawn = true;
+                Debug.Log("Coroutine after waiting starting tick");
+
+            } while (!spawnedOrCannotSpawn);
             yield return new WaitForSeconds(beatRate);
         }
 
