@@ -6,17 +6,17 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [Header ("References")]
+    [Header("References")]
     public LevelController levelController;
     private Rigidbody2D rb;
 
-    [Header ("Attributes")]
+    [Header("Attributes")]
     public bool inhale;
     private Vector3 moveDirection;
-    private Vector3 randomDirection; 
+    private Vector3 randomDirection;
     private Vector3 randomDir;
 
-    [Header ("Scaling setup")]
+    [Header("Scaling setup")]
     public int moveSpeed;
     public float breathTime;
     public float unstressLevel;
@@ -24,7 +24,8 @@ public class PlayerController : MonoBehaviour
     public float maxSize;
     public float basicScale = 2;
 
- 
+    public float forceScale = 5;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -39,12 +40,12 @@ public class PlayerController : MonoBehaviour
         if (inhale)
         {
             breathTime += Time.deltaTime;
-            this.gameObject.transform.localScale += new Vector3(breathTime*(1/maxSize),breathTime*(1/maxSize),0);
-                  
+            this.gameObject.transform.localScale += new Vector3(breathTime * (1 / maxSize), breathTime * (1 / maxSize), 0);
+
         }
         if (!inhale)
         {
-            this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(basicScale, basicScale, 0), Time.deltaTime);            
+            this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(basicScale, basicScale, 0), Time.deltaTime);
         }
 
 
@@ -61,15 +62,21 @@ public class PlayerController : MonoBehaviour
 
     void Movement()
     {
-        moveDirection = Vector3.Lerp(transform.position,Camera.main.ScreenToWorldPoint(Input.mousePosition), 5);
-        rb.MovePosition(moveDirection);
-//        rb.AddForce(randomDirection);
+        //moveDirection = Vector3.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 5);
+        moveDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        // rb.MovePosition(moveDirection);
+
+        Vector2 force = moveDirection;
+
+        // rb.AddForce(force * forceScale);
+        rb.velocity = moveDirection * forceScale;
+        //        rb.AddForce(randomDirection);
     }
 
     public void RandomizeMovementDirection()
     {
-        randomDirection = new Vector2(Random.Range(-1f,1f),Random.Range(-1f,1f));
-        
+        randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
+
     }
 
     public void OnInhale()
@@ -87,7 +94,7 @@ public class PlayerController : MonoBehaviour
 
     }
 
-    
+
 
     private void Pulse()
     {
@@ -96,7 +103,7 @@ public class PlayerController : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D other)
     {
-        if (other.gameObject.GetComponent<EnemyController>() != null)
+        if (other.gameObject.GetComponent<EnemyController>() != null || other.gameObject.GetComponent<EnemyControllerTowardTarget>() != null)
         {
             levelController.stressLevel += other.gameObject.GetComponent<EnemyController>().stressPower;
         }

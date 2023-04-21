@@ -53,7 +53,7 @@ public class LevelController : MonoBehaviour
     {
         while (gameStarted)
         {
-            player.RandomizeMovementDirection();
+            //player.RandomizeMovementDirection();
             bool spawnedOrCannotSpawn = false;
             int failedCount = 0;
             do
