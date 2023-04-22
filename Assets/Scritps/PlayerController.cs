@@ -35,6 +35,13 @@ public class PlayerController : MonoBehaviour
     public float forceScaleDeepBreath = 0.5f;
     public float forceScaleHoldBreath = 10;
 
+    public float deepBreathTreshholdIncrease = 0.5f;
+    private bool deepBreatheBonus = false;
+    private int deepBreathIndex = 0;
+    private float deepBreathTreshhold = 0;
+
+    public float holdBreathStress = 0.1f;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -50,7 +57,15 @@ public class PlayerController : MonoBehaviour
         {
 
             if (this.gameObject.transform.localScale.x >= defaultMaxBreath && !deepBreathe)
+            {
                 inhale = false;
+                //for (int i = 0; i < deepBreatheBonus.Length; i++)
+                //{
+                deepBreatheBonus = false;
+                deepBreathIndex = 1;
+                deepBreathTreshhold = defaultMaxBreath + deepBreathTreshholdIncrease;
+                //}
+            }
             else
             {
                 this.gameObject.transform.localScale += new Vector3(breathSpeed, breathSpeed, 0);
@@ -58,6 +73,12 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetMouseButton(0) && this.gameObject.transform.localScale.x < deepMaxBreath)
                 {
                     deepBreathe = true;
+                    if (this.gameObject.transform.localScale.x > deepBreathTreshhold)
+                    {
+                        deepBreathTreshhold += deepBreathTreshholdIncrease;
+                        levelController.stressLevel -= unstressLevel * deepBreathIndex;
+                        deepBreathIndex += 1;
+                    }
                 }
                 else
                 {
@@ -74,6 +95,7 @@ public class PlayerController : MonoBehaviour
                 {
                     holdBreatheTime += Time.deltaTime;
                     holdBreathe = true;
+                    levelController.stressLevel += holdBreathStress;
                 }
                 else
                 {

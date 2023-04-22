@@ -11769,6 +11769,10 @@ PrefabInstance:
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
+      propertyPath: holdBreathStress
+      value: 0.075
+      objectReference: {fileID: 0}
+    - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: holdBreatheMaxTime
       value: 2
       objectReference: {fileID: 0}
