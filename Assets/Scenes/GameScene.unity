@@ -3903,6 +3903,14 @@ PrefabInstance:
       propertyPath: patternType
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 1620947827327878355, guid: f60456e531c2fe6439a010527bdb2d54, type: 3}
+      propertyPath: speed.Array.size
+      value: 4
+      objectReference: {fileID: 0}
+    - target: {fileID: 1620947827327878355, guid: f60456e531c2fe6439a010527bdb2d54, type: 3}
+      propertyPath: movementStep.Array.size
+      value: 4
+      objectReference: {fileID: 0}
     - target: {fileID: 3281605483174744567, guid: f60456e531c2fe6439a010527bdb2d54, type: 3}
       propertyPath: myVariable
       value: 0
