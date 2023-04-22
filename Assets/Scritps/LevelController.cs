@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 
+
 public class LevelController : MonoBehaviour
 {
     public PlayerController player;
@@ -23,13 +24,15 @@ public class LevelController : MonoBehaviour
     }
 
 
-    void Update()
+    void FixedUpdate()
     {
         if (gameStarted && !gameEnded)
         {
             globalTimer += Time.deltaTime;
             stressLevel += Time.deltaTime;
+            stressLevel = Mathf.Clamp (stressLevel,0,100);
             progressLevel += Time.deltaTime;
+            progressLevel = Mathf.Clamp (progressLevel,0,100);
 
             if (stressLevel >= 100)
             {
