@@ -11750,11 +11750,15 @@ PrefabInstance:
       objectReference: {fileID: 1835305570}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: breathSpeed
-      value: 0.08
+      value: 0.04
+      objectReference: {fileID: 0}
+    - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
+      propertyPath: deepMaxBreath
+      value: 4.1
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: unstressLevel
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: breatheMaxTime
