@@ -12,19 +12,28 @@ public class PlayerController : MonoBehaviour
 
     [Header("Attributes")]
     public bool inhale;
+    public bool holdBreathe;
+    public bool deepBreathe;
     private Vector3 moveDirection;
     private Vector3 randomDirection;
     private Vector3 randomDir;
 
     [Header("Scaling setup")]
     public int moveSpeed;
-    public float breathTime;
+    public float breathSpeed;
     public float unstressLevel;
     public float breatheMaxTime;
+    public float holdBreatheTime;
+    public float holdBreatheMaxTime;
     public float maxSize;
-    public float basicScale = 2;
+
+    public float defaultMinBreath = 1;
+    public float defaultMaxBreath = 4;
+    public float deepMaxBreath = 4;
 
     public float forceScale = 5;
+    public float forceScaleDeepBreath = 0.5f;
+    public float forceScaleHoldBreath = 10;
 
     // Start is called before the first frame update
     void Start()
@@ -39,37 +48,75 @@ public class PlayerController : MonoBehaviour
 
         if (inhale)
         {
-            breathTime += Time.deltaTime;
-            this.gameObject.transform.localScale += new Vector3(breathTime * (1 / maxSize), breathTime * (1 / maxSize), 0);
 
+            if (this.gameObject.transform.localScale.x >= defaultMaxBreath && !deepBreathe)
+                inhale = false;
+            else
+            {
+                this.gameObject.transform.localScale += new Vector3(breathSpeed, breathSpeed, 0);
+
+                if (Input.GetMouseButton(0) && this.gameObject.transform.localScale.x < deepMaxBreath)
+                {
+                    deepBreathe = true;
+                }
+                else
+                {
+                    deepBreathe = false;
+                }
+
+            }
         }
         if (!inhale)
         {
-            this.gameObject.transform.localScale = Vector3.Lerp(this.gameObject.transform.localScale, new Vector3(basicScale, basicScale, 0), Time.deltaTime);
+            if (this.gameObject.transform.localScale.x < defaultMinBreath)
+            {
+                if (Input.GetMouseButton(1) && holdBreatheTime < holdBreatheMaxTime)
+                {
+                    holdBreatheTime += Time.deltaTime;
+                    holdBreathe = true;
+                }
+                else
+                {
+                    holdBreatheTime = 0;
+                    inhale = true;
+                    holdBreathe = false;
+                }
+            }
+            else
+            {
+                this.gameObject.transform.localScale -= new Vector3(breathSpeed, breathSpeed, 0);
+
+            }
         }
 
-
-        if (Input.GetMouseButtonDown(0) && breathTime < breatheMaxTime)
-        {
-            OnInhale();
-        }
-        if (Input.GetMouseButtonUp(0) || breathTime >= breatheMaxTime)
-        {
-            OnExhale();
-        }
+        //if (Input.GetMouseButtonDown(0) && breathTime < breatheMaxTime)
+        //{
+        //    OnInhale();
+        //}
+        //if (Input.GetMouseButtonUp(0) || breathTime >= breatheMaxTime)
+        //{
+        //    OnExhale();
+        //}
 
     }
 
     void Movement()
     {
-        //moveDirection = Vector3.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 5);
         moveDirection = Camera.main.ScreenToWorldPoint(Input.mousePosition) - transform.position;
+        Vector2 force;
+        if (deepBreathe)
+            force = moveDirection * forceScaleDeepBreath;
+        else if (holdBreathe)
+            force = moveDirection * forceScaleHoldBreath;
+        else
+            force = moveDirection * forceScale;
+
+        rb.velocity = force;
+
+        //moveDirection = Vector3.Lerp(transform.position, Camera.main.ScreenToWorldPoint(Input.mousePosition), 5);
         // rb.MovePosition(moveDirection);
 
-        Vector2 force = moveDirection;
-
         // rb.AddForce(force * forceScale);
-        rb.velocity = moveDirection * forceScale;
         //        rb.AddForce(randomDirection);
     }
 
@@ -89,8 +136,8 @@ public class PlayerController : MonoBehaviour
     public void OnExhale()
     {
         inhale = false;
-        levelController.stressLevel -= breathTime * unstressLevel;
-        breathTime = 0;
+        levelController.stressLevel -= breathSpeed * unstressLevel;
+        breathSpeed = 0;
 
     }
 
