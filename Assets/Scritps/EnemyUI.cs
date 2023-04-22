@@ -10,7 +10,7 @@ public class EnemyUI : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        image.sprite = enemySprites[Random.Range(0,enemySprites.Count)];
+//        image.sprite = enemySprites[Random.Range(0,enemySprites.Count)];
     }
 
     // Update is called once per frame
