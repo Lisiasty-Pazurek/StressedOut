@@ -5,8 +5,16 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
+    public Canvas startgameCanvas;
+    public Canvas gameplayCanvas;
+
     public Slider stressSlider;
     public Slider progressSlider;
+
+    public Animator walkerAnimator;
+    public Animator stressBarTopAnimator;
+    public Animator stressedOutAnimator;
+
 
     public LevelController lvlController;
 
