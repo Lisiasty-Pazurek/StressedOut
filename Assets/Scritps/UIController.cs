@@ -7,6 +7,8 @@ public class UIController : MonoBehaviour
 {
     public Canvas startgameCanvas;
     public Canvas gameplayCanvas;
+    public GameObject winCanvas;
+    public GameObject loseCanvas;
 
     public Slider stressSlider;
     public Slider progressSlider;
@@ -14,9 +16,9 @@ public class UIController : MonoBehaviour
     public Animator walkerAnimator;
     public Animator stressBarTopAnimator;
     public Animator stressedOutAnimator;
-
-
     public LevelController lvlController;
+
+    public List<GameObject> levelObjects = new List<GameObject>();
 
     // Start is called before the first frame update
     void Start()
