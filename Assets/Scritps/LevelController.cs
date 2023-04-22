@@ -7,6 +7,7 @@ using UnityEngine.Events;
 public class LevelController : MonoBehaviour
 {
     public PlayerController player;
+    public UIController uiController;
     public float stressLevel;
     public float progressLevel;
     public int beatRate;
