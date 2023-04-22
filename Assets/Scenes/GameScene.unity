@@ -10454,7 +10454,7 @@ MonoBehaviour:
   progressSlider: {fileID: 1041923543}
   walkerAnimator: {fileID: 831873566}
   stressBarTopAnimator: {fileID: 670419512}
-  stressedOutAnimator: {fileID: 0}
+  stressedOutAnimator: {fileID: 2066308402}
   lvlController: {fileID: 1207094501}
 --- !u!4 &1839399175 stripped
 Transform:
@@ -12107,7 +12107,7 @@ Animator:
   m_GameObject: {fileID: 2066308398}
   m_Enabled: 1
   m_Avatar: {fileID: 0}
-  m_Controller: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 652381962949be048b4d0c608f823f53, type: 2}
   m_CullingMode: 0
   m_UpdateMode: 0
   m_ApplyRootMotion: 0

@@ -29,6 +29,8 @@ public class UIController : MonoBehaviour
     {
         stressSlider.value = lvlController.stressLevel;
         progressSlider.value = lvlController.progressLevel;
-        walkerAnimator.SetFloat("stressLevel",(lvlController.stressLevel/100));
+        walkerAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
+        stressedOutAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
+        stressBarTopAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
     }
 }
