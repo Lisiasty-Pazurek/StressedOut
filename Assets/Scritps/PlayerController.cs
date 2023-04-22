@@ -30,6 +30,7 @@ public class PlayerController : MonoBehaviour
     public float defaultMinBreath = 1;
     public float defaultMaxBreath = 4;
     public float deepMaxBreath = 4;
+    public float defaultBreathStress = 1;
 
     public float forceScale = 5;
     public float forceScaleDeepBreath = 0.5f;
@@ -62,8 +63,9 @@ public class PlayerController : MonoBehaviour
                 //for (int i = 0; i < deepBreatheBonus.Length; i++)
                 //{
                 deepBreatheBonus = false;
-                deepBreathIndex = 1;
+                deepBreathIndex = 0;
                 deepBreathTreshhold = defaultMaxBreath + deepBreathTreshholdIncrease;
+                levelController.stressLevel += defaultBreathStress;
                 //}
             }
             else
@@ -76,7 +78,7 @@ public class PlayerController : MonoBehaviour
                     if (this.gameObject.transform.localScale.x > deepBreathTreshhold)
                     {
                         deepBreathTreshhold += deepBreathTreshholdIncrease;
-                        levelController.stressLevel -= unstressLevel * deepBreathIndex;
+                        levelController.stressLevel -= unstressLevel * (1 + (float)deepBreathIndex/2);
                         deepBreathIndex += 1;
                     }
                 }

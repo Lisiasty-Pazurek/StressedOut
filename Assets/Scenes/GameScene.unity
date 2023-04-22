@@ -11753,8 +11753,12 @@ PrefabInstance:
       value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
-      propertyPath: breatheMaxTime
+      propertyPath: unstressLevel
       value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
+      propertyPath: breatheMaxTime
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: levelController
@@ -11774,7 +11778,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327612, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: holdBreatheMaxTime
-      value: 2
+      value: 1.5
       objectReference: {fileID: 0}
     - target: {fileID: 376073971106327613, guid: 07d69725c27a0714480ce91e42feef88, type: 3}
       propertyPath: m_Pivot.x
