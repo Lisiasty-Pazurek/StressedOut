@@ -85,7 +85,6 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     deepBreathe = false;
-                   
                 }
 
             }
@@ -114,15 +113,6 @@ public class PlayerController : MonoBehaviour
 
             }
         }
-
-        //if (Input.GetMouseButtonDown(0) && breathTime < breatheMaxTime)
-        //{
-        //    OnInhale();
-        //}
-        //if (Input.GetMouseButtonUp(0) || breathTime >= breatheMaxTime)
-        //{
-        //    OnExhale();
-        //}
 
     }
 

@@ -11,7 +11,7 @@ public class LevelController : MonoBehaviour
     public float stressLevel;
     public float progressLevel;
     public int beatRate;
-    private bool gameStarted = true;
+    public bool gameStarted = true;
     public bool gameEnded = false;
     public bool win = false;
     public float breathTimer;

@@ -6,7 +6,7 @@ AnimationClip:
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_Name: breathing
+  m_Name: holdMouth
   serializedVersion: 6
   m_Legacy: 0
   m_Compressed: 0
@@ -19,15 +19,9 @@ AnimationClip:
   m_FloatCurves: []
   m_PPtrCurves:
   - curve:
-    - time: 0.016666668
+    - time: 0
       value: {fileID: 21300000, guid: f4892bc831199e542b20e12350766e79, type: 3}
-    - time: 0.2
-      value: {fileID: 21300000, guid: af75ded4ebfaab042b15fba9b0d2f2b1, type: 3}
-    - time: 0.36666667
-      value: {fileID: 21300000, guid: 19f73b2fc15332440b4263a4e971a73f, type: 3}
-    - time: 0.53333336
-      value: {fileID: 21300000, guid: af75ded4ebfaab042b15fba9b0d2f2b1, type: 3}
-    - time: 0.6666667
+    - time: 0.083333336
       value: {fileID: 21300000, guid: f4892bc831199e542b20e12350766e79, type: 3}
     attribute: m_Sprite
     path: 
@@ -49,16 +43,13 @@ AnimationClip:
       isPPtrCurve: 1
     pptrCurveMapping:
     - {fileID: 21300000, guid: f4892bc831199e542b20e12350766e79, type: 3}
-    - {fileID: 21300000, guid: af75ded4ebfaab042b15fba9b0d2f2b1, type: 3}
-    - {fileID: 21300000, guid: 19f73b2fc15332440b4263a4e971a73f, type: 3}
-    - {fileID: 21300000, guid: af75ded4ebfaab042b15fba9b0d2f2b1, type: 3}
     - {fileID: 21300000, guid: f4892bc831199e542b20e12350766e79, type: 3}
   m_AnimationClipSettings:
     serializedVersion: 2
     m_AdditiveReferencePoseClip: {fileID: 0}
     m_AdditiveReferencePoseTime: 0
     m_StartTime: 0
-    m_StopTime: 0.68333334
+    m_StopTime: 0.1
     m_OrientationOffsetY: 0
     m_Level: 0
     m_CycleOffset: 0

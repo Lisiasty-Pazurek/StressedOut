@@ -31,11 +31,14 @@ public class UIController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        stressSlider.value = lvlController.stressLevel;
-        progressSlider.value = lvlController.progressLevel;
-        walkerAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
-        stressedOutAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
-        stressBarTopAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
+        if (lvlController.gameStarted && !lvlController.gameEnded)
+        {
+            stressSlider.value = lvlController.stressLevel;
+            progressSlider.value = lvlController.progressLevel;
+            walkerAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
+            stressedOutAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
+            stressBarTopAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
+        }
     }
 
     public void StartLevel(GameObject level)
