@@ -2171,7 +2171,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 251, y: -28.000002}
+  m_AnchoredPosition: {x: -242.8, y: -28.000002}
   m_SizeDelta: {x: 252.92, y: 174.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!95 &229682628
@@ -5517,7 +5517,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START
+  m_Text: MENU
 --- !u!222 &644265539
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -8076,6 +8076,7 @@ GameObject:
   - component: {fileID: 963194228}
   - component: {fileID: 963194227}
   - component: {fileID: 963194226}
+  - component: {fileID: 963194229}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -8149,6 +8150,102 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!82 &963194229
+AudioSource:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963194225}
+  m_Enabled: 1
+  serializedVersion: 4
+  OutputAudioMixerGroup: {fileID: 0}
+  m_audioClip: {fileID: 0}
+  m_PlayOnAwake: 1
+  m_Volume: 1
+  m_Pitch: 1
+  Loop: 1
+  Mute: 0
+  Spatialize: 0
+  SpatializePostEffects: 0
+  Priority: 128
+  DopplerLevel: 1
+  MinDistance: 1
+  MaxDistance: 500
+  Pan2D: 0
+  rolloffMode: 0
+  BypassEffects: 0
+  BypassListenerEffects: 0
+  BypassReverbZones: 0
+  rolloffCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  panLevelCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  spreadCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  reverbZoneMixCustomCurve:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0.33333334
+      outWeight: 0.33333334
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
 --- !u!1 &969794420
 GameObject:
   m_ObjectHideFlags: 0
@@ -8200,7 +8297,7 @@ GameObject:
   - component: {fileID: 971156016}
   - component: {fileID: 971156019}
   - component: {fileID: 971156018}
-  - component: {fileID: 971156017}
+  - component: {fileID: 971156020}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -8228,22 +8325,6 @@ RectTransform:
   m_AnchoredPosition: {x: -0.000091553, y: 184.00002}
   m_SizeDelta: {x: 573.43, y: 132.81}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!111 &971156017
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 971156015}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 13d82c129096a504d9aef02cef5f1bac, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 13d82c129096a504d9aef02cef5f1bac, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
 --- !u!114 &971156018
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -8282,6 +8363,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 971156015}
   m_CullTransparentMesh: 1
+--- !u!95 &971156020
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 971156015}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: ea12b4d3efb6d1a45a4f8787cf96bcd5, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!1 &985290440
 GameObject:
   m_ObjectHideFlags: 0
@@ -12838,7 +12939,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -236, y: -37.000004}
+  m_AnchoredPosition: {x: 251.57, y: -37.000004}
   m_SizeDelta: {x: 252.92, y: 174.13}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1642798544
@@ -13640,7 +13741,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: START
+  m_Text: MENU
 --- !u!222 &1752236664
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -14296,6 +14397,7 @@ MonoBehaviour:
   - {fileID: 1840123057}
   - {fileID: 1474502779}
   - {fileID: 327167514}
+  - {fileID: 1100205349}
 --- !u!4 &1839399175 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1620947827327878354, guid: f60456e531c2fe6439a010527bdb2d54, type: 3}
@@ -15544,6 +15646,7 @@ GameObject:
   - component: {fileID: 1963718677}
   - component: {fileID: 1963718679}
   - component: {fileID: 1963718678}
+  - component: {fileID: 1963718680}
   m_Layer: 0
   m_Name: Image
   m_TagString: Untagged
@@ -15609,6 +15712,26 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1963718676}
   m_CullTransparentMesh: 1
+--- !u!95 &1963718680
+Animator:
+  serializedVersion: 5
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1963718676}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 591cb95370d7313439cf7365bd9da07e, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
 --- !u!4 &1968729815 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1620947827327878354, guid: f60456e531c2fe6439a010527bdb2d54, type: 3}
@@ -16405,7 +16528,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: NEXT LEVEL
+  m_Text: NEXT LVL
 --- !u!222 &2109959317
 CanvasRenderer:
   m_ObjectHideFlags: 0
