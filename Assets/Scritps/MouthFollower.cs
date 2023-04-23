@@ -41,6 +41,10 @@ public class MouthFollower : MonoBehaviour
         {
             SetAnimation("HoldBreath");
         }
+        if (!FindObjectOfType<LevelController>().gameStarted || FindObjectOfType<LevelController>().gameEnded)
+        {
+            SetAnimation("Empty");
+        }
         
     }
 
