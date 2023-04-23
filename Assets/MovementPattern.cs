@@ -13,6 +13,8 @@ public class MovementPattern : MonoBehaviour
 
     private Transform myTransform;
 
+    private float[] timers = new float[4];
+
     // Start is called before the first frame update
     void Start()
     {
@@ -42,6 +44,10 @@ public class MovementPattern : MonoBehaviour
                 break;
             case PatternType.SquareCounterClockwise:
                 CounterClockWise();
+                break;
+            case PatternType.UpAndDownAndLeftRightAndStop:
+                UpAndDownMovement();
+                LeftRightStopMovement();
                 break;
             default:
                 break;
@@ -85,6 +91,44 @@ public class MovementPattern : MonoBehaviour
             else
                 x -= speed[1] * Time.deltaTime;
             myTransform.position = new Vector3(x, y, 0);
+        }
+    }
+
+    void LeftRightStopMovement()
+    {
+        if (movementStep[1] == 0)
+        {
+            if (x >= xMax)
+                movementStep[1] = 1;
+            else
+                x += speed[1] * Time.deltaTime;
+            myTransform.position = new Vector3(x, y, 0);
+        }
+        else if (movementStep[1] == 1)
+        {
+            timers[2] += Time.deltaTime;
+            if (timers[2] >= speed[2])
+            {
+                timers[2] = 0;
+                movementStep[1] = 2;
+            }
+        }
+        else if (movementStep[1] == 2)
+        {
+            if (x <= xMin)
+                movementStep[1] = 3;
+            else
+                x -= speed[1] * Time.deltaTime;
+            myTransform.position = new Vector3(x, y, 0);
+        }
+        else if (movementStep[1] == 3)
+        {
+            timers[3] += Time.deltaTime;
+            if (timers[3] >= speed[3])
+            {
+                timers[3] = 0;
+                movementStep[1] = 0;
+            }
         }
     }
 
@@ -166,6 +210,7 @@ public class MovementPattern : MonoBehaviour
         LeftRight,
         UpAndDownAndLeftRight,
         SquareClockwise,
-        SquareCounterClockwise
+        SquareCounterClockwise,
+        UpAndDownAndLeftRightAndStop,
     }
 }

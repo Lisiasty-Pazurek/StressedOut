@@ -9,6 +9,8 @@ public class EnemyControllerTowardTarget : MonoBehaviour
     public float stressPower;
     public Transform moveDestination;
 
+    public bool RapidTurn = false;
+
     public LevelController levelController;
 
     public float maxSpeed;
@@ -25,9 +27,22 @@ public class EnemyControllerTowardTarget : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-
+        bool towardTarget = false;
+        if (RapidTurn)
+        {
+            float distTemp = Vector2.Distance(MoveDestination2D, CurrentPosition2D);
+            float distAfterMoveTemp = Vector2.Distance(MoveDestination2D, CurrentPosition2D + rb.velocity);
+            if (distTemp < distAfterMoveTemp)
+            {
+                towardTarget = false;
+            }
+            else if (distTemp > distAfterMoveTemp)
+            {
+                towardTarget = true;
+            }
+        }
         Vector2 direction = (MoveDestination2D - CurrentPosition2D);
-        if (rb.velocity.magnitude < maxSpeed)
+        if (rb.velocity.magnitude < maxSpeed || towardTarget)
         {
             rb.AddForce(direction * forceModifier);
         }
