@@ -13,9 +13,4 @@ public class EnemyUI : MonoBehaviour
 //        image.sprite = enemySprites[Random.Range(0,enemySprites.Count)];
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
 }

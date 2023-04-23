@@ -154,7 +154,6 @@ public class PlayerController : MonoBehaviour
 
     public void OnInhale()
     {
-
         inhale = true;
         // do breathing action
     }
@@ -164,14 +163,6 @@ public class PlayerController : MonoBehaviour
         inhale = false;
         levelController.stressLevel -= breathSpeed * unstressLevel;
         breathSpeed = 0;
-
-    }
-
-
-
-    private void Pulse()
-    {
-
     }
 
     void OnCollisionEnter2D(Collision2D other)

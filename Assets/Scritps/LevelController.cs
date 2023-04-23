@@ -13,16 +13,20 @@ public class LevelController : MonoBehaviour
     public int beatRate;
     private bool gameStarted = true;
     public bool gameEnded = false;
+    public bool win = false;
     public float breathTimer;
     public float globalTimer;
 
     [SerializeField]
     public List<ISpawner> spawners = new List<ISpawner>();
+    public GameObject currentLevel;
 
     void Start()
     {
         StartCoroutine(Heartbeat());
     }
+
+
 
 
     void FixedUpdate()
@@ -38,19 +42,27 @@ public class LevelController : MonoBehaviour
             if (stressLevel >= 100)
             {
                 gameEnded = true;
-                // lose
+                win = false;
+                uiController.EndLevel(win);
             }
 
             if (progressLevel >= 100)
             {
                 gameEnded = true;
-
-                // win
+                win = true;
+                uiController.EndLevel(win);
             }
-
         }
-
     }
+
+    public void ResetProgress()
+    {
+        stressLevel = 0;
+        progressLevel = 0;
+        gameEnded = false;
+        win = false;
+    }
+
 
 
     private IEnumerator Heartbeat()

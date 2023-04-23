@@ -5,8 +5,9 @@ using UnityEngine.UI;
 
 public class UIController : MonoBehaviour
 {
-    public Canvas startgameCanvas;
-    public Canvas gameplayCanvas;
+    public GameObject startgameCanvas;
+    public GameObject gameplayCanvas;
+    public GameObject levelpickerCanvas;
     public GameObject winCanvas;
     public GameObject loseCanvas;
 
@@ -18,7 +19,8 @@ public class UIController : MonoBehaviour
     public Animator stressedOutAnimator;
     public LevelController lvlController;
 
-    public List<GameObject> levelObjects = new List<GameObject>();
+    public List<GameObject> levels = new List<GameObject>();
+
 
     // Start is called before the first frame update
     void Start()
@@ -35,4 +37,42 @@ public class UIController : MonoBehaviour
         stressedOutAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
         stressBarTopAnimator.SetFloat("stressLevel",(lvlController.stressLevel));
     }
+
+    public void StartLevel(GameObject level)
+    {
+        lvlController.ResetProgress();
+        gameplayCanvas.SetActive(true);
+        levelpickerCanvas.SetActive(false);
+        level.SetActive(true);
+        lvlController.currentLevel = level;
+    }
+
+    public void RestartLevel()
+    {
+        lvlController.ResetProgress();
+        gameplayCanvas.SetActive(true);
+        loseCanvas.SetActive(false);
+        lvlController.currentLevel.SetActive(true) ;
+    }
+    
+
+    public void NextLevel()
+    {
+        lvlController.ResetProgress();
+        gameplayCanvas.SetActive(true);
+        winCanvas.SetActive(false);
+        int position = levels.IndexOf(lvlController.currentLevel);
+        levels[position + 1].SetActive(true);
+        lvlController.currentLevel = levels[position + 1];
+    }
+
+
+    public void EndLevel(bool win)
+    {
+        loseCanvas.SetActive(!win);
+        winCanvas.SetActive(win);
+        lvlController.currentLevel.SetActive(false);
+    }
+
+
 }

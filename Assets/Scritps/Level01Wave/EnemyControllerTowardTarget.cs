@@ -9,12 +9,15 @@ public class EnemyControllerTowardTarget : MonoBehaviour
     public float stressPower;
     public Transform moveDestination;
 
+    public LevelController levelController;
+
     public float maxSpeed;
     public float forceModifier;
     // Start is called before the first frame update
     void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        levelController = FindObjectOfType<LevelController>();
         // moveDestination = new Vector2(Random.Range(-maxSpeed,maxSpeed),Random.Range(-maxSpeed,maxSpeed));
 
     }
@@ -29,6 +32,7 @@ public class EnemyControllerTowardTarget : MonoBehaviour
             rb.AddForce(direction * forceModifier);
         }
 
+        eCollider.enabled = !levelController.gameEnded;
 
     }
 
