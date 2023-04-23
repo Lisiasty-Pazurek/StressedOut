@@ -43,6 +43,9 @@ public class PlayerController : MonoBehaviour
 
     public float holdBreathStress = 0.1f;
 
+    public delegate void DeepBreathValueChange(bool deepBreath);
+    public static event DeepBreathValueChange OnBreathChange;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -75,6 +78,7 @@ public class PlayerController : MonoBehaviour
                 if (Input.GetMouseButton(0) && this.gameObject.transform.localScale.x < deepMaxBreath)
                 {
                     deepBreathe = true;
+                    OnBreathChange(deepBreathe);
                     if (this.gameObject.transform.localScale.x >= deepBreathTreshhold)
                     {
                         deepBreathTreshhold += deepBreathTreshholdIncrease;
@@ -85,12 +89,13 @@ public class PlayerController : MonoBehaviour
                 else
                 {
                     deepBreathe = false;
+                    OnBreathChange(deepBreathe);
                 }
 
             }
         }
         if (!inhale)
-        {
+        {       
             if (this.gameObject.transform.localScale.x < defaultMinBreath)
             {
                 if (Input.GetMouseButton(1) && holdBreatheTime < holdBreatheMaxTime)
@@ -136,24 +141,25 @@ public class PlayerController : MonoBehaviour
         //        rb.AddForce(randomDirection);
     }
 
-    public void RandomizeMovementDirection()
-    {
-        randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
-    }
+    // public void RandomizeMovementDirection()
+    // {
+    //     randomDirection = new Vector2(Random.Range(-1f, 1f), Random.Range(-1f, 1f));
 
-    public void OnInhale()
-    {
-        inhale = true;
-        // do breathing action
-    }
+    // }
 
-    public void OnExhale()
-    {
-        inhale = false;
-        levelController.stressLevel -= breathSpeed * unstressLevel;
-        breathSpeed = 0;
-    }
+    // public void OnInhale()
+    // {
+    //     inhale = true;
+    //     // do breathing action
+    // }
+
+    // public void OnExhale()
+    // {
+    //     inhale = false;
+    //     levelController.stressLevel -= breathSpeed * unstressLevel;
+    //     breathSpeed = 0;
+    // }
 
     void OnCollisionEnter2D(Collision2D other)
     {
