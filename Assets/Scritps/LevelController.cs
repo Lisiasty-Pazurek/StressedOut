@@ -57,6 +57,7 @@ public class LevelController : MonoBehaviour
 
     public void ResetProgress()
     {
+        gameStarted = true;
         stressLevel = 0;
         progressLevel = 0;
         gameEnded = false;

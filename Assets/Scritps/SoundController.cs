@@ -24,18 +24,20 @@ public class SoundController : MonoBehaviour
 
     void HandleBreathChange(bool deepBreath)
     {
-
-        if (deepBreath && !audioSource.isPlaying && deepBreath != lastBreathState)
+        if (FindObjectOfType<LevelController>().gameStarted) 
         {
-            audioSource.clip = breathingSound[0];
-            audioSource.Play();
-            lastBreathState = deepBreath;
-        }
-        else if (!deepBreath && !audioSource.isPlaying && deepBreath != lastBreathState)
-        {
-            audioSource.clip = breathingSound[1];
-            audioSource.Play();            
-            lastBreathState = deepBreath;
+            if (deepBreath && !audioSource.isPlaying && deepBreath != lastBreathState)
+            {
+                audioSource.clip = breathingSound[0];
+                audioSource.Play();
+                lastBreathState = deepBreath;
+            }
+            else if (!deepBreath && !audioSource.isPlaying && deepBreath != lastBreathState)
+            {
+                audioSource.clip = breathingSound[1];
+                audioSource.Play();            
+                lastBreathState = deepBreath;
+            }
         }
 
         else return;
