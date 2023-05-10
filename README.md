@@ -15,9 +15,9 @@ Stressful events/enemies have different behaviours of movement.
 2d, vector digital artwork.
 
 ## Screenshots
-![Image shows player avoiding stressfull events in StressedOut minigame](https://img.itch.zone/aW1hZ2UvMjAzMjcwNC8xMTk1NDUzNC5wbmc=/250x600/woc2y3.png | 250x600)
-![Image shows main game screen in StressedOut minigame](https://img.itch.zone/aW1nLzExOTU0NTMzLmdpZg==/315x250%23c/0XbG30.gif | 250x600)
-![Image shows win game screen in StressedOut minigame](https://img.itch.zone/aW1hZ2UvMjAzMjcwNC8xMTk1NDU0NS5naWY=/250x600/2e3fAl.gif | 250x600)
+![Image shows player avoiding stressfull events in StressedOut minigame](https://img.itch.zone/aW1hZ2UvMjAzMjcwNC8xMTk1NDUzNC5wbmc=/250x600/woc2y3.png =250x600)
+![Image shows main game screen in StressedOut minigame](https://img.itch.zone/aW1nLzExOTU0NTMzLmdpZg==/315x250%23c/0XbG30.gif =250x600)
+![Image shows win game screen in StressedOut minigame](https://img.itch.zone/aW1hZ2UvMjAzMjcwNC8xMTk1NDU0NS5naWY=/250x600/2e3fAl.gif =250x600)
 
 ## Links
 [StressedOut at Itch.io](https://pazurek.itch.io/stressedout)
